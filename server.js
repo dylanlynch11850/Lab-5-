@@ -33,9 +33,12 @@ app.get('/name', (req, res)=>{
     res.send('Hello '+req.query.fname+ ' ' +req.query.lname);
 })
 
-//
+//creating an API
 app.get('/api/books', (req, res) =>{
 
+  //Here is the API
+  //Hardcoded to an array of objects,
+  //created variable called books 
     const books = [
         {
             "title": "Learn Git in a Month of Lunches",
