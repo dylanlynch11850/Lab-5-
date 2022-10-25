@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 const bodyParser = require('body-parser')
 
-// parse application/x-www-form-urlencoded
+// parse application/x-www-form-urlencoded, to parse the body of the text 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
@@ -15,17 +15,19 @@ app.get('/', (req, res) => {
   res.send('Hello World!, welcome')
 })
 
-//sends back htp response, sends text box back 
+//sends back htp response, sends back form input from html page 
 app.get('/test', (req, res)=>{
 res.sendFile(__dirname + '/index.html')
 })
 
+
+//post method sending back texts
 app.post('/name', (req, res)=>{
     console.log(req.body);
     res.send('Hello '+req.body.fname+ ' ' +req.body.lname+' from POST method');
 })
 
-
+// get method sending back text 
 app.get('/name', (req, res)=>{
     console.log(req.query.Fname);
     res.send('Hello '+req.query.fname+ ' ' +req.query.lname);
@@ -99,6 +101,7 @@ app.get('/Hello/:name', (req, res)=>{
     res.send('Hello'+req.params.name);
 })
 
+//http listener is active here
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
