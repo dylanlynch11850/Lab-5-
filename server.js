@@ -31,6 +31,7 @@ app.get('/name', (req, res)=>{
     res.send('Hello '+req.query.fname+ ' ' +req.query.lname);
 })
 
+//
 app.get('/api/books', (req, res) =>{
 
     const books = [
@@ -75,6 +76,7 @@ app.get('/api/books', (req, res) =>{
     ];
     
     //res is for response 
+  //result with status code
     res.status(200).json({
         mybooks:books
 
@@ -83,6 +85,7 @@ app.get('/api/books', (req, res) =>{
 })
 
 //sending texts back 
+//get method with callback 
 app.get('/datarep', (req, res)=>{
     res.send('Hello From DataRep')
 })
@@ -90,6 +93,7 @@ app.get('/datarep', (req, res)=>{
 
 //This is how you define a name, name is now a paramater.
 //server is sending it back down 
+//get method sending back text
 app.get('/Hello/:name', (req, res)=>{
     console.log(req.params.name);
     res.send('Hello'+req.params.name);
